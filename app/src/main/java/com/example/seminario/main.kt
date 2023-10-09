@@ -7,7 +7,7 @@ fun main(){
     println(Kilometros(100.0))
     println(Palindromo("abao"))
     println(Letras("melon",'e'))
-    println(Subcadena("el doctor Pimiento pi to me miro el pito","pito"))
+    println(Subcadena("me miro el pito iubiubh pito","pito"))
 }
 //Ejercicio1
 fun Maximo(array:Array<Int>):Int{
@@ -54,15 +54,33 @@ fun Letras(frase:String,letra:Char):Int{
     return cont
 }
 //Ejercicio6
-fun Subcadena(frase:String,frase2:String):Int{
+fun Subcadena(frase:String,subcadena:String):Int{
+    var encontrado=false
     var cont=0
-    var array= arrayOf(frase.split())
-    for(i in array.indices){
-        println(array[i])
-        if(array[i].equals(frase2)){
-            cont++
+    var contFrase = subcadena.length
+    var contadorVeces = 0
+    var elto_inicial = subcadena[0]
+
+    for(letra in frase){
+
+        if(cont > 0){
+            if(letra == subcadena[cont]) {
+                cont++
+            }else{
+                cont = 0
+            }
+
+        }else{
+            if(letra == elto_inicial){
+                cont++
+            }
         }
+        if(cont == contFrase){
+            contadorVeces++
+            cont = 0
+        }
+
     }
 
-    return cont
+    return contadorVeces
 }
