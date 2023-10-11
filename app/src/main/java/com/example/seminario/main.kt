@@ -1,5 +1,7 @@
 package com.example.seminario
 
+import kotlin.system.exitProcess
+
 fun main(){
     var array= arrayOf(7,3,80,75,3,1)
     println(Maximo(array))
@@ -8,6 +10,9 @@ fun main(){
     println(Palindromo("abao"))
     println(Letras("melon",'e'))
     println(Subcadena("me miro el pito iubiubh pito","pito"))
+    println(Mayuscula("me miro el pito iubiubh pito"))
+    println(SumaCifras(123))
+    println(Mcd(24,40))
 }
 //Ejercicio1
 fun Maximo(array:Array<Int>):Int{
@@ -83,4 +88,39 @@ fun Subcadena(frase:String,subcadena:String):Int{
     }
 
     return contadorVeces
+}
+//Ejercicio7
+fun Mayuscula(texto:String):String{
+    var arrayPalabras=texto.split(" ")
+    var arrayMutable=arrayPalabras.toMutableList()
+    var res=""
+    for (i in arrayMutable.indices){
+        arrayMutable[i] = arrayMutable[i].capitalize()
+        res+=arrayMutable[i]+" "
+    }
+    return res
+}
+//Ejercicio8
+fun SumaCifras(numero:Int):Int{
+    var cifra=0
+    var res=0
+    var numero2=numero
+
+    while(numero2%10!=0){
+        cifra=numero2%10
+        numero2 = numero2/10
+        res+=cifra
+    }
+    return res
+}
+//Ejercicio9
+fun Mcd(numero: Int,numero2:Int):Int{
+    var res=0
+    for(n in numero .. 0){
+
+        if(numero%n==0&&numero%n==0){
+            return n
+        }
+    }
+    return res
 }
