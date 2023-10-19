@@ -198,12 +198,21 @@ fun Capicua(numero:Int):Boolean{
     return false
 }
 //Ejercio13
-fun Etiqueta(texto:String):String{
-    val etiqueta = texto.split(".")
+fun Etiqueta(cadena:String):String{
     var res=""
-    res= "<"+etiqueta[0]+" class= "+etiqueta[1]+"></"+etiqueta[0]+">"
+    var id= cadena.split("#")
+    var id2 = id[0].split(".")
+    var div = cadena.split(".")
+    if(cadena.contains(".") && !cadena.contains("#")){
+        res="<"+div[0]+" class="+div[1]+"</div>"
+    }else if(cadena.contains("#") && cadena.contains(".")){
+        res="<div"+id[0]+" class="+id2[1]+" id="+id[1]+"></div>"
+    }else{
+        res="<"+cadena+"><"+cadena+"/>"
+    }
     return res
 }
+
 
 //Ejercicio 14
 fun Mosaico(n:Int):String{
@@ -351,9 +360,14 @@ fun Anagrama(text:String,text2:String):Boolean{
         }
     }
     for(i in confirmar.indices){
-        if(confirmar[i]==false){
-            return false
+        if(confirmar[i]==true){
+            return true
         }
     }
-    return true
+    return false
+}
+
+//Ejercicio30
+fun Triangular(n:Int):Boolean{
+    //No se hacer una ecuacion de segundo grado en kotlin :) <3
 }
