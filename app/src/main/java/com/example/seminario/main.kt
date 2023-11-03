@@ -81,39 +81,14 @@ fun Letras(frase:String,letra:Char):Int{
 }
 //Ejercicio6
 fun Subcadena(frase:String,subcadena:String):Int{
-    var encontrado=false
-    var cont=0
-    var contFrase = subcadena.length
-    var contadorVeces = 0
-    var elto_inicial = subcadena[0]
+    val partes = frase.split(subcadena)
 
-    for(letra in frase){
-
-        if(cont > 0){
-            if(letra == subcadena[cont]) {
-                cont++
-            }else{
-                cont = 0
-            }
-
-        }else{
-            if(letra == elto_inicial){
-                cont++
-            }
-        }
-        if(cont == contFrase){
-            contadorVeces++
-            cont = 0
-        }
-
-    }
-
-    return contadorVeces
+    return partes.size-1
 }
 //Ejercicio7
 fun Mayuscula(texto:String):String{
-    var arrayPalabras=texto.split(" ")
-    var arrayMutable=arrayPalabras.toMutableList()
+
+    var arrayMutable=texto.split(" ").toMutableList()
     var res=""
     for (i in arrayMutable.indices){
         arrayMutable[i] = arrayMutable[i].capitalize()
@@ -139,7 +114,7 @@ fun Mcd(numero: Int,numero2:Int):Int{
     var res=0
     for(n in numero .. 0){
 
-        if(numero%n==0&&numero%n==0){
+        if(numero%n==0&&numero2%n==0){
             return n
         }
     }
@@ -368,6 +343,3 @@ fun Anagrama(text:String,text2:String):Boolean{
 }
 
 //Ejercicio30
-fun Triangular(n:Int):Boolean{
-    //No se hacer una ecuacion de segundo grado en kotlin :) <3
-}
