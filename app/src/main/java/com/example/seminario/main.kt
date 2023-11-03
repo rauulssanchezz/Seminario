@@ -24,7 +24,7 @@ fun main(){
         print(CompararArrays(array,array1)[i])
     }
     println()
-    println(Factorial(5))
+    println(Factorial(4))
     println(Reverso("Hola"))
     println(Perfecto(6))
     println(Amstrong(153))
@@ -34,6 +34,7 @@ fun main(){
     println(PalabraCorta("Hola bebee como te va como te va"))
     println(Determinar("Por el amor de es2a mujeeeer"))
     println(Anagrama("pene","nepe"))
+    println(esTriangular(3))
 }
 //Ejercicio1
 fun Maximo(array:Array<Int>):Int{
@@ -360,3 +361,18 @@ fun Anagrama(text:String,text2:String):Boolean{
 }
 
 //Ejercicio30
+fun esTriangular(numero: Int): Boolean {
+    var x = 1
+    var triangular = 0
+
+    while (triangular < numero) {
+        triangular = x * (x + 1) / 2
+
+        if (triangular == numero) {
+            return true
+        }
+        x++
+    }
+
+    return false
+}
