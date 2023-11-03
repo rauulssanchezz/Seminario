@@ -16,7 +16,7 @@ fun main(){
     println(SumaCifras(123))
     println(Mcd(20,10))
     println(Fibonacci(2))
-    println(PrimosRelativos(10,20))
+    println(PrimosRelativos(16,25))
     println(Capicua(122))
     println(Etiqueta("a.kaka"))
     print(Mosaico(5))
@@ -153,25 +153,31 @@ fun Fibonacci(numero:Int):Int{
 //Ejercicio11
 fun PrimosRelativos(n1:Int,n2:Int):Boolean{
 
-    var fact1=0
-    var fact2=0
+    var res=0
+    var aux=0
+    var numero=n1
+    var numero2=n2
 
-    for(n in 1..n1){
-        if(n1%n==0){
-            fact1=n
+    if (numero2<numero){
+        aux=numero
+        numero=numero2
+        numero2=numero
+    }
+
+    for(n in numero downTo 1){
+
+        if(numero%n==0&&numero2%n==0){
+            res=n
+            break
         }
     }
-    for(n in 1..n2){
-        if(n1%n==0){
-            fact2=n
-        }
+    if(res==1){
+        return true
     }
-    if(fact1!=0 && fact2!=0){
-        if(fact1==fact2){
-            return false
-        }
-    }
-    return true
+    return false
+
+
+
 }
 
 //Ejercicio12
