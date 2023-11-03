@@ -14,7 +14,7 @@ fun main(){
     println(Subcadena("me miro el pito iubiubh pito","pito"))
     println(Mayuscula("me miro el pito iubiubh pito"))
     println(SumaCifras(123))
-    println(Mcd(24,40))
+    println(Mcd(20,10))
     println(Fibonacci(2))
     println(PrimosRelativos(10,20))
     println(Capicua(122))
@@ -112,10 +112,21 @@ fun SumaCifras(numero:Int):Int{
 //Ejercicio9
 fun Mcd(numero: Int,numero2:Int):Int{
     var res=0
-    for(n in numero .. 0){
+    var aux=0
+    var nn=numero
+    var n2=numero2
 
-        if(numero%n==0&&numero2%n==0){
-            return n
+    if (numero2<numero){
+        aux=numero
+        nn=numero2
+        n2=numero
+    }
+
+    for(n in nn downTo 1){
+
+        if(nn%n==0&&n2%n==0){
+            res=n
+            return res
         }
     }
     return res
